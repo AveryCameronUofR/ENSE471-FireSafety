@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Button, Text, Alert} from 'react-native';
 
+
 import NumberButton from '../Components/NumberButton';
 import Tips from '../Components/Tips';
 import NavBar from '../Components/NavBar';
@@ -23,7 +24,7 @@ const CallScreen = () => {
 		}
 		Alert.alert('You Called 911');
 	}
-	
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.tipContainer}>
@@ -34,24 +35,24 @@ const CallScreen = () => {
 			</View>
 			<View style={styles.buttonContainer}>
 				<View style={styles.buttonRow}>
-					<NumberButton num={'1'} subText={'    '} onPress={pressNumberHandler.bind(this, 1)} />
-					<NumberButton num={'2'} subText={'ABC '} onPress={pressNumberHandler.bind(this, 2)} />
-					<NumberButton num={'3'} subText={'DEF '} onPress={pressNumberHandler.bind(this, 3)} />
+					<NumberButton num={'1'} subText={'    '} onPress={pressNumberHandler.bind(this, '1')} />
+					<NumberButton num={'2'} subText={'ABC '} onPress={pressNumberHandler.bind(this, '2')} />
+					<NumberButton num={'3'} subText={'DEF '} onPress={pressNumberHandler.bind(this, '3')} />
 				</View>
 				<View style={styles.buttonRow}>
-					<NumberButton num={'4'} subText={'GHI '} onPress={pressNumberHandler.bind(this, 4)} />
-					<NumberButton num={'5'} subText={'JKL '} onPress={pressNumberHandler.bind(this, 5)} />
-					<NumberButton num={'6'} subText={'MNO '} onPress={pressNumberHandler.bind(this, 6)} />
+					<NumberButton num={'4'} subText={'GHI '} onPress={pressNumberHandler.bind(this, '4')} />
+					<NumberButton num={'5'} subText={'JKL '} onPress={pressNumberHandler.bind(this, '5')} />
+					<NumberButton num={'6'} subText={'MNO '} onPress={pressNumberHandler.bind(this, '6')} />
 				</View>
 				<View style={styles.buttonRow}>
-					<NumberButton num={'7'} subText={'PQRS'} onPress={pressNumberHandler.bind(this, 7)} />
-					<NumberButton num={'8'} subText={'TUV '} onPress={pressNumberHandler.bind(this, 8)} />
-					<NumberButton num={'9'} subText={'WXYZ'} onPress={pressNumberHandler.bind(this, 9)} />
+					<NumberButton num={'7'} subText={'PQRS'} onPress={pressNumberHandler.bind(this, '7')} />
+					<NumberButton num={'8'} subText={'TUV '} onPress={pressNumberHandler.bind(this, '8')} />
+					<NumberButton num={'9'} subText={'WXYZ'} onPress={pressNumberHandler.bind(this, '9')} />
 				</View>
 				<View style={styles.buttonRow}>
-					<NumberButton num={'*'} subText={'    '} onPress={pressNumberHandler.bind(this, 10)} />
-					<NumberButton num={'0'} subText={'    '} onPress={pressNumberHandler.bind(this, 0)} />
-					<NumberButton num={'#'} subText={'    '} onPress={pressNumberHandler.bind(this, 11)} />
+					<NumberButton num={'*'} subText={'    '} onPress={pressNumberHandler.bind(this, '*')} />
+					<NumberButton num={'0'} subText={'+'} onPress={pressNumberHandler.bind(this, '0')} />
+					<NumberButton num={'#'} subText={'    '} onPress={pressNumberHandler.bind(this, '#')} />
 				</View>
 			</View>
 			<CallButton num="Call" onPress={callHandler} />

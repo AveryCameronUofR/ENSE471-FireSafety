@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
+import { Ionicons, Feather } from '@expo/vector-icons';
 const NavBar = _props => {
   return (
     <View style={styles.NavBar}>
       <TouchableOpacity style={styles.NavBarItem}>
-        <Text style={styles.NavBarItemText}>Call</Text>
+        <Ionicons style={styles.NavBarItemText} name={'ios-call'} size={36}/>
       </TouchableOpacity>
       
       <TouchableOpacity style={styles.NavBarItem}>
-        <Text style={styles.NavBarItemText}>Script</Text>
+        <Feather style={styles.NavBarItemText} name ={'file-text'} size={36}/>
       </TouchableOpacity>
     </View>
   );
@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
     margin: 0
   },
   NavBarItemText: {
-    color: 'black',
-    fontSize: 24,
     textAlign: 'center',
   }
 });
