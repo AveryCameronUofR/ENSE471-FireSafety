@@ -34,28 +34,28 @@ const CallScreen = () => {
 				<Text style={styles.inputText}>{enteredNums}</Text>
 			</View>
 			<View style={styles.buttonContainer}>
-				<View style={styles.buttonRow}>
+				<View style={styles.row}>
 					<NumberButton num={'1'} subText={'    '} onPress={pressNumberHandler.bind(this, '1')} />
 					<NumberButton num={'2'} subText={'ABC '} onPress={pressNumberHandler.bind(this, '2')} />
 					<NumberButton num={'3'} subText={'DEF '} onPress={pressNumberHandler.bind(this, '3')} />
 				</View>
-				<View style={styles.buttonRow}>
+				<View style={styles.row}>
 					<NumberButton num={'4'} subText={'GHI '} onPress={pressNumberHandler.bind(this, '4')} />
 					<NumberButton num={'5'} subText={'JKL '} onPress={pressNumberHandler.bind(this, '5')} />
 					<NumberButton num={'6'} subText={'MNO '} onPress={pressNumberHandler.bind(this, '6')} />
 				</View>
-				<View style={styles.buttonRow}>
+				<View style={styles.row}>
 					<NumberButton num={'7'} subText={'PQRS'} onPress={pressNumberHandler.bind(this, '7')} />
 					<NumberButton num={'8'} subText={'TUV '} onPress={pressNumberHandler.bind(this, '8')} />
 					<NumberButton num={'9'} subText={'WXYZ'} onPress={pressNumberHandler.bind(this, '9')} />
 				</View>
-				<View style={styles.buttonRow}>
+				<View style={styles.row}>
 					<NumberButton num={'*'} subText={'    '} onPress={pressNumberHandler.bind(this, '*')} />
 					<NumberButton num={'0'} subText={'+'} onPress={pressNumberHandler.bind(this, '0')} />
 					<NumberButton num={'#'} subText={'    '} onPress={pressNumberHandler.bind(this, '#')} />
 				</View>
 			</View>
-			<CallButton num="Call" onPress={callHandler} />
+			<CallButton onPress={callHandler} />
 			<View style={styles.navBarContainer}>
 				<NavBar />
 			</View>
@@ -86,10 +86,10 @@ const styles = StyleSheet.create({
 	navBarContainer: {
 		flexDirection: 'column'
 	},
-	buttonRow: {
+	row: {
 		flexDirection: 'row',
 		flex: 1,
-		width: '100%',
+		flexWrap: 'nowrap',
 		alignContent: 'center',
 		justifyContent: 'center',
 	},

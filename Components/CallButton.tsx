@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 
-const CallButton = (props: { num: string, onPress: any }) => {
+const CallButton = (props: { onPress: any }) => {
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>{props.num}</Text>
+        <Text style={styles.buttonText}>Call</Text>
       </View>
     </TouchableOpacity>
   );
