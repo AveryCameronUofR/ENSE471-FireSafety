@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   NavBar: {
     flex:1,
     flexDirection: 'row',
-    flexWrap: 'nowrap',
     width: '100%',
     height: '10%',
     marginTop: 10,

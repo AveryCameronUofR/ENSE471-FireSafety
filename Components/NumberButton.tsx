@@ -26,15 +26,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonText: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
     fontSize: 24
   },
   buttonSubText: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
     fontSize: 11
   },
 });
