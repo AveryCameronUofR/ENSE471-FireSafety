@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Text, Alert} from 'react-native';
+import { View, StyleSheet, Button, Text, Alert } from 'react-native';
 
 
 import NumberButton from '../Components/NumberButton';
@@ -88,15 +88,11 @@ const styles = StyleSheet.create({
 	row: {
 		flexDirection: 'row',
 		flex: 1,
-		flexWrap: 'nowrap',
-		alignContent: 'center',
 		justifyContent: 'center',
 	},
 	buttonContainer: {
 		height: '60%',
 		width: '100%',
-		alignContent: 'center',
-		justifyContent: 'space-around',
 	}
 });
 
