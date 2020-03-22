@@ -59,9 +59,13 @@ const CallScreen = () => {
 					<NumberButton num={'0'} subText={' +  '} onPress={pressNumberHandler.bind(this, '0')} />
 					<NumberButton num={'#'} subText={'    '} onPress={pressNumberHandler.bind(this, '#')} />
 				</View>
+        <View style={styles.row}>
+          <CallButton onPress={callHandler} />
+          <BackButton onPress={pressBackHandler}/>
+          
+        </View>
 			</View>
-			<CallButton onPress={callHandler} />
-      <BackButton onPress={pressBackHandler}/>
+      
 		</View>
 	);
 };
@@ -94,9 +98,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		flex: 1,
 		justifyContent: 'center',
-	},
+  },
 	buttonContainer: {
-		height: '60%',
+		height: '75%',
 		width: '100%',
 	}
 });
