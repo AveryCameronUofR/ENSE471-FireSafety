@@ -1,5 +1,5 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import React from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
 
 const EmptyButton = () => {
   return (
@@ -9,13 +9,13 @@ const EmptyButton = () => {
 };
 
 const styles = StyleSheet.create({
-    button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        marginHorizontal: 10,
-        width: 70,
-        height: 70,
-      },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    marginHorizontal: 10,
+    width: 70,
+    height: 70
+  }
 });
 export default EmptyButton;

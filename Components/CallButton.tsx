@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import React from "react";
+import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 
-const CallButton = (props: { onPress: ()=>void }) => {
+const CallButton = (props: { onPress: () => void }) => {
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
       <View style={styles.button}>
@@ -13,21 +13,21 @@ const CallButton = (props: { onPress: ()=>void }) => {
 
 const styles = StyleSheet.create({
   button: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 10,
     marginHorizontal: 10,
     width: 70,
     height: 70,
-    backgroundColor: '#5bf162',
+    backgroundColor: "#5bf162",
     borderRadius: 35,
-    borderColor: 'black',
-    borderWidth: 1,
+    borderColor: "black",
+    borderWidth: 1
   },
   buttonText: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
     fontSize: 24
   }
 });

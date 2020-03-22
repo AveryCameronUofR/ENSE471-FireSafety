@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Button, Text, Alert} from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
 const ScriptScreen = () => {
-    return (
-      <View>
-        <Text>Script</Text>
-      </View>    
-    );
-    
+  return (
+    <View>
+      <Text>Script</Text>
+    </View>
+  );
 };
 
 export default ScriptScreen;
