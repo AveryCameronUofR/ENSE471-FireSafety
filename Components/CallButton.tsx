@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 
-const CallButton = (props: { onPress: any }) => {
+const CallButton = (props: { onPress: ()=>void }) => {
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>
       <View style={styles.button}>
