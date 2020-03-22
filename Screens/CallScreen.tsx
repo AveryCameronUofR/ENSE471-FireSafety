@@ -4,13 +4,18 @@ import { View, StyleSheet, Button, Text, Alert } from 'react-native';
 
 import NumberButton from '../Components/NumberButton';
 import Tips from '../Components/Tips';
-import { Ionicons } from '@expo/vector-icons';
 import CallButton from '../Components/CallButton'
-const CallScreen = () => {
-	const [enteredNums, setEnteredNums] = useState([]);
+import BackButton from '../Components/BackButton'
 
-	const pressNumberHandler = (num: number) => {
-		setEnteredNums([...enteredNums, num]);
+const CallScreen = () => {
+	const [enteredNums, setEnteredNums] = useState('');
+
+	const pressNumberHandler = (num: string) => {
+		setEnteredNums(enteredNums+num);
+  };
+  
+  const pressBackHandler = () => {
+		setEnteredNums(enteredNums.substr(0, enteredNums.length-1));
 	};
 
 	const callHandler = () =>{
@@ -18,7 +23,7 @@ const CallScreen = () => {
 			Alert.alert('Wrong length');
 			return;
 		}
-		if (enteredNums[0] != 9 || enteredNums[1] != 1 || enteredNums[1] != 1){
+		if (enteredNums != '911'){
 			Alert.alert('Wrong Number')
 			return;
 		}
@@ -56,7 +61,7 @@ const CallScreen = () => {
 				</View>
 			</View>
 			<CallButton onPress={callHandler} />
-			<Ionicons name={'backspace-outline'} size={36}/>
+      <BackButton onPress={pressBackHandler}/>
 		</View>
 	);
 };
