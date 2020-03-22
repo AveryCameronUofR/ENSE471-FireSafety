@@ -6,6 +6,7 @@ import NumberButton from '../Components/NumberButton';
 import Tips from '../Components/Tips';
 import CallButton from '../Components/CallButton'
 import BackButton from '../Components/BackButton'
+import EmptyButton from '../Components/EmptyButton';
 
 const CallScreen = () => {
 	const [enteredNums, setEnteredNums] = useState('');
@@ -60,6 +61,7 @@ const CallScreen = () => {
 					<NumberButton num={'#'} subText={'    '} onPress={pressNumberHandler.bind(this, '#')} />
 				</View>
         <View style={styles.row}>
+          <EmptyButton/>
           <CallButton onPress={callHandler} />
           <BackButton onPress={pressBackHandler}/>
           
