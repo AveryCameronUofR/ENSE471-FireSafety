@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import CallScreen from './Screens/CallScreen';
 import ScriptScreen from './Screens/ScriptScreen';
 import NavBar from './Components/NavBar';
 
-let selectedScreen: JSX.Element = <CallScreen/>
-const pressScriptHandler = () => {
-  selectedScreen = <ScriptScreen/>
-}
-const pressCallHandler = () => {
-  selectedScreen = <CallScreen/>
-}
-
 export default function App() {
+  const [selectedScreen, setSelectedScreen] = useState('call');
+  let screen: JSX.Element = <CallScreen/>
+  const pressScriptHandler = () => {
+    setSelectedScreen('script');
+  }
+  const pressCallHandler = () => {
+    setSelectedScreen('call');
+  }
+  
+  if (selectedScreen == 'call'){
+    screen = <CallScreen/>
+  } else if (selectedScreen == 'script'){
+    screen = <ScriptScreen/>
+  }
   return (
     
     <View style={styles.container}>
-        {selectedScreen}
+        {screen}
         <View style={styles.navBarContainer}>
           <NavBar onPhoneSelect={pressCallHandler.bind(this)} onScriptSelect={pressScriptHandler.bind(this)}/>
         </View>
