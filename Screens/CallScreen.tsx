@@ -17,7 +17,8 @@ const CallScreen = () => {
   const pressBackHandler = () => {
     setEnteredNums(enteredNums.substr(0, enteredNums.length - 1));
   };
-
+  let tip: JSX.Element = <Tips info="What is the number? _ _ _" imageType="Remind"/>
+  
   const callHandler = () => {
     if (enteredNums.length != 3) {
       Alert.alert("Wrong length");
@@ -33,7 +34,7 @@ const CallScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.tipContainer}>
-        <Tips info="This is a long sting of text for tips that goes over the screen line" />
+        {tip}
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.inputText}>{enteredNums}</Text>
