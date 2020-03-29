@@ -1,6 +1,8 @@
 import React, { useState }  from "react";
-import { View, Text, StyleSheet, Image, Button } from "react-native";
+import { View, Text, StyleSheet, Image, Button,TouchableOpacity } from "react-native";
 import Tips from "../Components/Tips";
+
+import { Ionicons } from "@expo/vector-icons";
 const TipScreen = (props: {tipsCompleteHandler: () => void}) => {
     let address = '';
     let addressTip: string = 'Good Job ' + address; 
@@ -34,7 +36,7 @@ const TipScreen = (props: {tipsCompleteHandler: () => void}) => {
 
     const prevTipHandler = () => {
         if (currentTip != 0){
-            setCurrentTip(currentTip + 1)
+            setCurrentTip(currentTip - 1)
             return;
         }
         props.tipsCompleteHandler();
@@ -49,8 +51,14 @@ const TipScreen = (props: {tipsCompleteHandler: () => void}) => {
         <Text style={styles.TipsInfo}>{tips[currentTip].info}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title={'Previous Tip'} onPress={prevTipHandler}/>
-        <Button title={'Next Tip'} onPress={nextTipHandler}/>
+        <TouchableOpacity onPress={prevTipHandler}>
+            <Ionicons name={"ios-arrow-dropleft"} size={36} />
+            <Text>Previous Tip</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={nextTipHandler}>
+            <Ionicons name={"ios-arrow-dropright"} size={36} />
+            <Text>Next Tip</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
