@@ -7,9 +7,9 @@ import CallButton from "../Components/CallButton";
 import BackButton from "../Components/BackButton";
 import EmptyButton from "../Components/EmptyButton";
 
-const CallScreen = () => {
+const CallScreen = (props: {successfulCallHandler: () => void}) => {
   const [enteredNums, setEnteredNums] = useState("");
-
+  let tip: JSX.Element = <Tips info="What is the number? _ _ _" imageType="Remind"/>;
   const pressNumberHandler = (num: string) => {
     setEnteredNums(enteredNums + num);
   };
@@ -17,7 +17,6 @@ const CallScreen = () => {
   const pressBackHandler = () => {
     setEnteredNums(enteredNums.substr(0, enteredNums.length - 1));
   };
-  let tip: JSX.Element = <Tips info="What is the number? _ _ _" imageType="Remind"/>
   
   const callHandler = () => {
     if (enteredNums.length != 3) {
@@ -28,7 +27,7 @@ const CallScreen = () => {
       Alert.alert("Wrong Number");
       return;
     }
-    Alert.alert("You Called 911");
+    props.successfulCallHandler();
   };
 
   return (
