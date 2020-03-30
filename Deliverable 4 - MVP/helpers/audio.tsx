@@ -1,5 +1,4 @@
 import { Audio } from "expo-av";
-import Sound from "react-native-sound";
 let soundObject1 = new Audio.Sound();
 soundObject1.loadAsync(require("../assets/audio/keypress1.mp3"));
 let soundObject2 = new Audio.Sound();
