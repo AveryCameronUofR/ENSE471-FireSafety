@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
+
+import { playSuccess } from '../helpers/audio';
+
 const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   let address = "";
   let addressTip: string = "Good Job " + address;
   let tips: { info: string; imageType: string }[] = [
-    { info: "Good Job, the number is 911", imageType: "GoodJob" },
+    { info: "Good Job! The number is 911", imageType: "GoodJob" },
     { info: "What is your emergency? 🔥🚒", imageType: "Remind" },
-    { info: "Good Job, your emergency is a Fire!", imageType: "GoodJob" },
+    { info: "Good Job! Your emergency is a fire!", imageType: "GoodJob" },
     { info: "What is your address? 🏠", imageType: "Remind" },
-    { info: addressTip, imageType: "GoodJob" },
+    { info: addressTip, imageType: "GoodJob! " },
     { info: "Are you in danger?", imageType: "Remind" },
     { info: "Good Job!", imageType: "GoodJob" },
     { info: "Great Practice! 911 call complete", imageType: "Complete" }
@@ -43,6 +46,9 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   const nextTipHandler = () => {
     if (currentTip + 1 < tips.length) {
       setCurrentTip(currentTip + 1);
+      if (currentTip % 2 == 1){
+        playSuccess();
+      }
       return;
     }
     props.tipsCompleteHandler();
