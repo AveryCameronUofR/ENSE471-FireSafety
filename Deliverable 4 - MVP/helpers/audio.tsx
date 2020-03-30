@@ -85,3 +85,13 @@ export const playButtonSound = async (num: string) => {
     // An error occurred!
   }
 };
+
+const successSound = new Audio.Sound();
+successSound.loadAsync(
+  require("../assets/audio/success.mp3")
+);
+export const playSuccess = async () => {
+  try {
+    successSound.replayAsync();
+  } catch (error) {}
+};
