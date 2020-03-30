@@ -7,11 +7,14 @@ import CallButton from "../Components/CallButton";
 import BackButton from "../Components/BackButton";
 import EmptyButton from "../Components/EmptyButton";
 
+import { playButtonSound } from '../helpers/audio';
+
 const CallScreen = (props: {successfulCallHandler: () => void}) => {
   const [enteredNums, setEnteredNums] = useState("");
   let tip: JSX.Element = <Tips info="What is the number? _ _ _" imageType="Remind"/>;
   const pressNumberHandler = (num: string) => {
     setEnteredNums(enteredNums + num);
+    playButtonSound(num);
   };
 
   const pressBackHandler = () => {
