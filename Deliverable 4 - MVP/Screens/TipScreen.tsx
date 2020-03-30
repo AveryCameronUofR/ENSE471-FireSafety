@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
 const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
@@ -91,17 +85,17 @@ const styles = StyleSheet.create({
   TipsInfo: {
     color: "black",
     fontSize: 32,
-    textAlign: 'center'
+    textAlign: "center"
   },
   imageContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   textContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   buttonContainer: {
     flexDirection: "row"
@@ -110,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   image: {
     width: "100%",
