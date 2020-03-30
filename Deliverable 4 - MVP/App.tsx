@@ -23,7 +23,7 @@ export default function App() {
     setSelectedScreen("call");
   }
 
-  let screen: JSX.Element;;
+  let screen: JSX.Element;
   if (selectedScreen == "call") {
     screen = <CallScreen successfulCallHandler={successfulCallHandler.bind(this)}/>;
   } else if (selectedScreen == "script") {
