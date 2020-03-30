@@ -86,6 +86,7 @@ export const playButtonSound = async (num: string) => {
   }
 };
 
+//Sound effect from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig
 const successSound = new Audio.Sound();
 successSound.loadAsync(
   require("../assets/audio/success.mp3")
@@ -93,5 +94,16 @@ successSound.loadAsync(
 export const playSuccess = async () => {
   try {
     successSound.replayAsync();
+  } catch (error) {}
+};
+
+//Sound effect obtained from: https://www.zapsplat.com/
+const correctSound = new Audio.Sound();
+correctSound.loadAsync(
+  require("../assets/audio/correct.mp3")
+);
+export const playCorrect = async () => {
+  try {
+    correctSound.replayAsync();
   } catch (error) {}
 };

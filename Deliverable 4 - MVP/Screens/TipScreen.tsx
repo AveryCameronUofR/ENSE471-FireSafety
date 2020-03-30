@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { playSuccess } from '../helpers/audio';
+import { playSuccess, playCorrect } from "../helpers/audio";
 
 const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   let address = "";
@@ -13,7 +13,7 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
     { info: "What is your emergency? 🔥🚒", imageType: "Remind" },
     { info: "Good Job! Your emergency is a fire!", imageType: "GoodJob" },
     { info: "What is your address? 🏠", imageType: "Remind" },
-    { info: addressTip, imageType: "GoodJob! " },
+    { info: addressTip, imageType: "GoodJob" },
     { info: "Are you in danger?", imageType: "Remind" },
     { info: "Good Job!", imageType: "GoodJob" },
     { info: "Great Practice! 911 call complete", imageType: "Complete" }
@@ -46,7 +46,9 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   const nextTipHandler = () => {
     if (currentTip + 1 < tips.length) {
       setCurrentTip(currentTip + 1);
-      if (currentTip % 2 == 1){
+      if (currentTip % 2 == 1) {
+        playCorrect();
+      } else if (currentTip == 6) {
         playSuccess();
       }
       return;
