@@ -1,28 +1,30 @@
 import { Audio } from "expo-av";
+//DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php 
+//For educational use, permission confirmed.
 let buttonSound1 = new Audio.Sound();
-buttonSound1.loadAsync(require("../assets/audio/keypress1.mp3"));
+buttonSound1.loadAsync(require("../assets/audio/dtmf_1.mp3"));
 let buttonSound2 = new Audio.Sound();
-buttonSound2.loadAsync(require("../assets/audio/keypress2.mp3"));
+buttonSound2.loadAsync(require("../assets/audio/dtmf_2.mp3"));
 let buttonSound3 = new Audio.Sound();
-buttonSound3.loadAsync(require("../assets/audio/keypress3.mp3"));
+buttonSound3.loadAsync(require("../assets/audio/dtmf_3.mp3"));
 let buttonSound4 = new Audio.Sound();
-buttonSound4.loadAsync(require("../assets/audio/keypress4.mp3"));
+buttonSound4.loadAsync(require("../assets/audio/dtmf_4.mp3"));
 let buttonSound5 = new Audio.Sound();
-buttonSound5.loadAsync(require("../assets/audio/keypress5.mp3"));
+buttonSound5.loadAsync(require("../assets/audio/dtmf_5.mp3"));
 let buttonSound6 = new Audio.Sound();
-buttonSound6.loadAsync(require("../assets/audio/keypress6.mp3"));
+buttonSound6.loadAsync(require("../assets/audio/dtmf_6.mp3"));
 let buttonSound7 = new Audio.Sound();
-buttonSound7.loadAsync(require("../assets/audio/keypress7.mp3"));
+buttonSound7.loadAsync(require("../assets/audio/dtmf_7.mp3"));
 let buttonSound8 = new Audio.Sound();
-buttonSound8.loadAsync(require("../assets/audio/keypress8.mp3"));
+buttonSound8.loadAsync(require("../assets/audio/dtmf_8.mp3"));
 let buttonSound9 = new Audio.Sound();
-buttonSound9.loadAsync(require("../assets/audio/keypress9.mp3"));
+buttonSound9.loadAsync(require("../assets/audio/dtmf_9.mp3"));
 let buttonSoundStar = new Audio.Sound();
-buttonSoundStar.loadAsync(require("../assets/audio/keypressStar.mp3"));
+buttonSoundStar.loadAsync(require("../assets/audio/dtmf_S.mp3"));
 let buttonSound0 = new Audio.Sound();
-buttonSound0.loadAsync(require("../assets/audio/keypress0.mp3"));
+buttonSound0.loadAsync(require("../assets/audio/dtmf_0.mp3"));
 let buttonSoundPound = new Audio.Sound();
-buttonSoundPound.loadAsync(require("../assets/audio/keypressPound.mp3"));
+buttonSoundPound.loadAsync(require("../assets/audio/dtmf_P.mp3"));
 
 export const playButtonSound = async (num: string) => {
   try {
