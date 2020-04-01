@@ -88,7 +88,7 @@ export const playButtonSound = async (num: string) => {
   }
 };
 
-//Sound effect from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig
+//Sound effect from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig Attribution 3.0
 const successSound = new Audio.Sound();
 successSound.loadAsync(
   require("../assets/audio/success.mp3")
@@ -99,7 +99,7 @@ export const playSuccess = async () => {
   } catch (error) {}
 };
 
-//Sound effect obtained from: https://www.zapsplat.com/
+//Sound effect obtained from: https://www.zapsplat.com/ Attribution 3.0
 const correctSound = new Audio.Sound();
 correctSound.loadAsync(
   require("../assets/audio/correct.mp3")
@@ -107,5 +107,16 @@ correctSound.loadAsync(
 export const playCorrect = async () => {
   try {
     correctSound.replayAsync();
+  } catch (error) {}
+};
+
+//Sound effect obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ CC0 1.0
+const ringingSound = new Audio.Sound();
+ringingSound.loadAsync(
+  require("../assets/audio/ring-back-tone.mp3")
+);
+export const playRinging = async () => {
+  try {
+    ringingSound.replayAsync();
   } catch (error) {}
 };
