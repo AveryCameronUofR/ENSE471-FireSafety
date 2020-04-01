@@ -106,11 +106,13 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   buttonContainer: {
-    flexDirection: "row"
-  },
-  button: {
+    flexDirection: "row",
     justifyContent: "space-between",
     alignContent: "space-between",
+  },
+  button: {
+    justifyContent: "center",
+    alignContent: "center",
     alignItems: "center",
     paddingHorizontal: 10
   },
