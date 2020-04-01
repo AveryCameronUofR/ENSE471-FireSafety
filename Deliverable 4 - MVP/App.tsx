@@ -5,6 +5,8 @@ import ScriptScreen from "./Screens/ScriptScreen";
 import TipScreen from "./Screens/TipScreen";
 import NavBar from "./Components/NavBar";
 
+import { playRinging } from "./helpers/audio";
+
 export default function App() {
   const [selectedScreen, setSelectedScreen] = useState("call");
   
@@ -16,6 +18,7 @@ export default function App() {
   };
 
   const successfulCallHandler = () => {
+    playRinging();
     setSelectedScreen("tips");
   }
 
