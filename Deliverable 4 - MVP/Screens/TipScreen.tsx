@@ -24,21 +24,21 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
     image = (
       <Image
         style={styles.image}
-        source={require("../assets/Sparky_GoodJob.jpg")}
+        source={require("../assets/images/Sparky_GoodJob.jpg")}
       />
     );
   } else if (tips[currentTip].imageType == "Remind") {
     image = (
       <Image
         style={styles.image}
-        source={require("../assets/SparkyFireDog.jpg")}
+        source={require("../assets/images/SparkyFireDog.jpg")}
       />
     );
   } else if (tips[currentTip].imageType == "Complete") {
     image = (
       <Image
         style={styles.image}
-        source={require("../assets/Sparky_Complete.jpg")}
+        source={require("../assets/images/Sparky_Complete.jpg")}
       />
     );
   }

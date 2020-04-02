@@ -1,14 +1,17 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, ImageBackground } from "react-native";
 
 const Tips = (props: { info: string; imageType: string}) => {
 
 
-  let image: JSX.Element = <Image style={styles.image} source={require('../assets/Sparky_GoodJob.jpg')}/>;
+  let image: JSX.Element;
   if (props.imageType === "Remind"){
-    image = <Image style={styles.image} source={require('../assets/SparkyFireDog.jpg')}/>;
+    image = <ImageBackground style={styles.image} source={require('../assets/images/SparkyFireDog.jpg')}>
+            </ImageBackground>;
   } else if (props.imageType === "GoodJob"){
-    image = <Image style={styles.image} source={require('../assets/Sparky_GoodJob.jpg')}/>;
+    image = <ImageBackground style={styles.image} source={require('../assets/images/Sparky_GoodJob.jpg')}>
+          
+          </ImageBackground>;
   }
   return (
     <View style={styles.Tips}>
