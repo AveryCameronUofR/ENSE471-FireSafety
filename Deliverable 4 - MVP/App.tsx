@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { AppLoading } from 'expo';
+
 import CallScreen from "./Screens/CallScreen";
 import ScriptScreen from "./Screens/ScriptScreen";
 import TipScreen from "./Screens/TipScreen";
 import NavBar from "./Components/NavBar";
 
-import { playRinging } from "./helpers/audio";
+import { playRinging, loadAudio  } from "./helpers/audio";
 
-export default function App() {
+export default function App () {
   const [selectedScreen, setSelectedScreen] = useState("call");
-  
+  const loadAudioHandler = async () => {
+    await(loadAudio());
+  };
+
   const pressScriptHandler = () => {
     setSelectedScreen("script");
   };
@@ -24,6 +29,13 @@ export default function App() {
 
   const tipsCompleteHandler = () => {
     setSelectedScreen("call");
+  }
+
+  const [appLoaded, setAppLoaded] = useState(false);
+
+  //show app loading while fetching fonts to avoid errors
+  if (!appLoaded) {
+    return <AppLoading startAsync={loadAudioHandler} onFinish={() => setAppLoaded(true)} onError={(err)=>{console.log(err)}} />;
   }
 
   let screen: JSX.Element;
