@@ -24,23 +24,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     height: "10%",
-    marginTop: 12,
+    marginTop: 10,
     borderColor: "black",
-    borderTopWidth: 1.5
+    borderTopWidth: 1.5,
   },
   NavBarItem: {
     flex: 1,
-    padding: 0,
-    margin: 0
   },
   NavBarItemIcon: {
     flex: 1,
-    paddingTop: 10,
+    paddingTop: 5,
     textAlign: "center",
     borderColor: "black",
     borderLeftWidth: 1,
     borderRightWidth: 1,
-    borderBottomWidth: 0
+    borderBottomWidth: 0,
   }
 });
 
