@@ -7,7 +7,7 @@ import { playSuccess, playCorrect } from "../helpers/audio";
 
 const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   let address = "";
-  let addressTip: string = "Good Job " + address;
+  let addressTip: string = "Good Job " + address + '!';
   let tips: { info: string; imageType: string }[] = [
     { info: "Good Job! The number is 911", imageType: "GoodJob" },
     { info: "What is your emergency? 🔥🚒", imageType: "Remind" },
@@ -16,7 +16,7 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
     { info: addressTip, imageType: "GoodJob" },
     { info: "Are you in danger?", imageType: "Remind" },
     { info: "Good Job!", imageType: "GoodJob" },
-    { info: "Great Practice! 911 call complete", imageType: "Complete" }
+    { info: "⭐⭐⭐⭐⭐\nGreat Practice! 911 call complete!", imageType: "Complete" }
   ];
   const [currentTip, setCurrentTip] = useState(0);
   let image: JSX.Element;
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
+    marginTop: 75, 
     justifyContent: "center",
     alignItems: "center"
   },
@@ -118,7 +119,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: "100%"
+    height: "100%",
+    resizeMode: "contain"
   }
 });
 
