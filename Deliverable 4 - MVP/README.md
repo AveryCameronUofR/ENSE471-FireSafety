@@ -6,9 +6,6 @@ Next make sure that TypeScript is installed as a global dependency via: `npm ins
 
 Finally, go to the address path of the project, Deliverable 4. Then run `npm install` to update node_modules. This ensures that you have all the dependencies for the project to run.
 
-### Building the project
-To build the project, run: `npm run build` or simply `tsc` if typescript was installed globally.
-
 ### Starting the project
 To start the API, run: `npm start`  
 
