@@ -54,6 +54,11 @@ const CallScreen = (props: {successfulCallHandler: () => void}) => {
         if (enteredNums[1] == "1")
         {
           setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
+
+          if (enteredNums[2] == "1")
+          {
+            setTip(<Tips info={dialTip[3]} imageType="Remind"/>);
+          }
         }
       }
 
