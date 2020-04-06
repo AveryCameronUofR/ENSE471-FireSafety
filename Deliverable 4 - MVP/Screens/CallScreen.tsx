@@ -8,8 +8,6 @@ import BackButton from "../Components/BackButton";
 import EmptyButton from "../Components/EmptyButton";
 
 import { playButtonSound } from '../helpers/audio';
-import { getCurrentFrame } from "expo/build/AR";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const CallScreen = (props: {successfulCallHandler: () => void}) => {
   const [enteredNums, setEnteredNums] = useState("");
