@@ -33,8 +33,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   TipsInfo: {
+    position: 'absolute',
+    left: -100,
     color: "black",
-    fontSize: 24
+    fontSize: 24,
+    zIndex: 100,
+    alignContent: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
   imageContainer: {
     width: 60,
@@ -44,10 +50,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     overflow: 'hidden',
     margin: 5,
+    position: "absolute",
+    left: -175,
   },
   image: {
     width: '100%',
     height: '100%',
+    alignContent: "flex-start",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
 });
 
