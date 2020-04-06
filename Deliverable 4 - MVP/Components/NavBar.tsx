@@ -4,16 +4,21 @@ import { Ionicons, Feather } from "@expo/vector-icons";
 const NavBar = (props: {
   onPhoneSelect: () => void;
   onScriptSelect: () => void;
+  phoneSelectedStyle;
+  scriptSelectedStyle;
 }) => {
   return (
     <View style={styles.NavBar}>
-      <TouchableOpacity style={styles.NavBarItem} onPress={props.onPhoneSelect}>
-        <Ionicons style={styles.NavBarItemIcon} name={"ios-keypad"} size={36} />
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.NavBarItem} onPress={props.onScriptSelect}>
-        <Feather style={styles.NavBarItemIcon} name={"file-text"} size={36} />
-      </TouchableOpacity>
+      <View style={ props.phoneSelectedStyle }>
+        <TouchableOpacity style={ styles.NavBarItem } onPress={props.onPhoneSelect}>
+          <Ionicons style={styles.NavBarItemIcon} name={"ios-keypad"} size={36} />
+        </TouchableOpacity>
+      </View>
+      <View style={ props.  scriptSelectedStyle }>
+        <TouchableOpacity style={styles.NavBarItem} onPress={props.onScriptSelect}>
+          <Feather style={styles.NavBarItemIcon} name={"file-text"} size={36} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1.5,
   },
   NavBarItem: {
-    flex: 1,
+    flex: 1
   },
   NavBarItemIcon: {
     flex: 1,
