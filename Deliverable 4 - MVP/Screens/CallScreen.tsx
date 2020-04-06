@@ -8,13 +8,24 @@ import BackButton from "../Components/BackButton";
 import EmptyButton from "../Components/EmptyButton";
 
 import { playButtonSound } from '../helpers/audio';
+import { getCurrentFrame } from "expo/build/AR";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const CallScreen = (props: {successfulCallHandler: () => void}) => {
   const [enteredNums, setEnteredNums] = useState("");
-  let tip: JSX.Element = <Tips info="What is the number? _ _ _" imageType="Remind"/>;
+  const [tip, setTip] = useState(<Tips info="What is the number? _ _ _" imageType="Remind"/>);
+  var dialTip:string[] = new Array("What is the number? _ _ _","What is the number? 9 _ _","What is the number? 9 1 _","What is the number? 9 1 1") 
+
   const pressNumberHandler = (num: string) => {
-    setEnteredNums(enteredNums + num);
     playButtonSound(num);
+    if (enteredNums == "Wrong Length!" || enteredNums == "Wrong Number!")
+    {
+      setEnteredNums(num);
+      return;
+    }
+
+    setEnteredNums(enteredNums + num);
+    
   };
 
   const pressBackHandler = () => {
@@ -22,12 +33,30 @@ const CallScreen = (props: {successfulCallHandler: () => void}) => {
   };
   
   const callHandler = () => {
-    if (enteredNums.length != 3) {
-      Alert.alert("Wrong length");
-      return;
-    }
-    if (enteredNums != "911") {
-      Alert.alert("Wrong Number");
+    if (enteredNums != "911") 
+    {
+      //Alert.alert("Wrong Number");
+      if (enteredNums.length != 3) 
+      {
+        setEnteredNums("Wrong Length!");
+      }
+      else
+      {
+        setEnteredNums("Wrong Number!");
+      }
+      
+      setTip(<Tips info={dialTip[0]} imageType="Remind"/>);
+
+      if (enteredNums[0] == "9")
+      {
+        setTip(<Tips info={dialTip[1]} imageType="Remind"/>);
+
+        if (enteredNums[1] == "1")
+        {
+          setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
+        }
+      }
+
       return;
     }
     props.successfulCallHandler();
@@ -90,7 +119,8 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: 30,
     textAlign: "center",
-    fontWeight: "800"
+    fontWeight: "800",
+    color: "black"
   },
   navBarContainer: {
     width: "100%",
