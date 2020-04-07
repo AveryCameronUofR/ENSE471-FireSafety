@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Fire Safety Test App",
-    "slug": "PhoneApp",
+    "slug": "firesafety",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -30,6 +30,8 @@
           "audio"
         ]
       }
-    }
+    },
+    "description": "911 Practice Call Simulator: Fire Education App to practice calling 911 for fire emergencies with questions and prompts",
+    "githubUrl": "https://github.com/AveryCameronUofR/ENSE471-FireSafety/tree/master/Deliverable%204%20-%20MVP"
   }
 }
