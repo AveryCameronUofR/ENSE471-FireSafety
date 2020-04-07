@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, Alert } from "react-native";
 
+import Input from "../Components/Input";
 import NumberButton from "../Components/NumberButton";
 import Tips from "../Components/Tips";
 import CallButton from "../Components/CallButton";
@@ -10,45 +11,65 @@ import EmptyButton from "../Components/EmptyButton";
 import { playButtonSound } from '../helpers/audio';
 
 const CallScreen = (props: {successfulCallHandler: () => void}) => {
-  const [enteredNums, setEnteredNums] = useState("");
+  const [tempEnteredNums, tempSetEnteredNums] = useState("");
+  const [enteredNums, setEnteredNums] = useState(<Input input=""/>);
   const [tip, setTip] = useState(<Tips info="What is the number? _ _ _" imageType="Remind"/>);
   var dialTip:string[] = new Array("What is the number? _ _ _","What is the number? 9 _ _","What is the number? 9 1 _","What is the number? 9 1 1") 
 
   const pressNumberHandler = (num: string) => {
     playButtonSound(num);
-    if (enteredNums == "Wrong Length!" || enteredNums == "Wrong Number!")
+
+    if (tempEnteredNums == "Wrong Length!" || tempEnteredNums == "Wrong Number!")
     {
-      setEnteredNums(num);
+      tempSetEnteredNums(num);
+      setEnteredNums(<Input input={num}/>);
+
       return;
     }
 
-    setEnteredNums(enteredNums + num);
-    
+    tempSetEnteredNums(tempEnteredNums + num);
+    let temp: string = tempEnteredNums.concat(num.toString());
+
+    setEnteredNums(<Input input={temp}/>);
   };
 
   const pressBackHandler = () => {
-    setEnteredNums(enteredNums.substr(0, enteredNums.length - 1));
+    if (tempEnteredNums == "Wrong Length!" || tempEnteredNums == "Wrong Number!")
+    {
+      tempSetEnteredNums("");
+      setEnteredNums(<Input input=""/>);
+
+      return;
+    }
+
+    tempSetEnteredNums(tempEnteredNums.substr(0, tempEnteredNums.length - 1));
+    let temp: string = tempEnteredNums.substr(0, tempEnteredNums.length - 1);
+    
+    setEnteredNums(<Input input={temp}/>)
   };
   
   const callHandler = () => {
-    if (enteredNums != "911") 
+    if (tempEnteredNums != "911") 
     {
       //Alert.alert("Wrong Number");
-      if (enteredNums.length != 3) 
+      if (tempEnteredNums.length != 3) 
       {
-        setEnteredNums("Wrong Length!");
+        tempSetEnteredNums("Wrong Length!");
+        setEnteredNums(<Input input="Wrong Length!"/>);
       }
       else
       {
-        setEnteredNums("Wrong Number!");
+        tempSetEnteredNums("Wrong Number!");
+        setEnteredNums(<Input input="Wrong Number!"/>);
       }
       
-      setTip(<Tips info={dialTip[0]} imageType="Remind"/>);
+      // setTip(<Tips info={dialTip[0]} imageType="Remind"/>);
 
-      if (enteredNums[0] == "9")
-      {
-        setTip(<Tips info={dialTip[1]} imageType="Remind"/>);
+      // if (enteredNums[0] == "9")
+      // {
+      //   setTip(<Tips info={dialTip[1]} imageType="Remind"/>);
 
+<<<<<<< Updated upstream
         if (enteredNums[1] == "1")
         {
           setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
@@ -59,6 +80,13 @@ const CallScreen = (props: {successfulCallHandler: () => void}) => {
           }
         }
       }
+=======
+      //   if (enteredNums[1] == "1")
+      //   {
+      //     setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
+      //   }
+      // }
+>>>>>>> Stashed changes
 
       return;
     }
