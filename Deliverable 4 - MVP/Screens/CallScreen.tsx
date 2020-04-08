@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Alert } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import Input from "../Components/Input";
 import NumberButton from "../Components/NumberButton";
@@ -11,83 +11,44 @@ import EmptyButton from "../Components/EmptyButton";
 import { playButtonSound } from '../helpers/audio';
 
 const CallScreen = (props: {successfulCallHandler: () => void}) => {
-  const [tempEnteredNums, tempSetEnteredNums] = useState("");
-  const [enteredNums, setEnteredNums] = useState(<Input input=""/>);
+  const [enteredNums, setEnteredNums] = useState("");
   const [tip, setTip] = useState(<Tips info="What is the number? _ _ _" imageType="Remind"/>);
   var dialTip:string[] = new Array("What is the number? _ _ _","What is the number? 9 _ _","What is the number? 9 1 _","What is the number? 9 1 1") 
 
   const pressNumberHandler = (num: string) => {
     playButtonSound(num);
 
-    if (tempEnteredNums == "Wrong Length!" || tempEnteredNums == "Wrong Number!")
+    if (enteredNums.includes("Wrong"))
     {
-      tempSetEnteredNums(num);
-      setEnteredNums(<Input input={num}/>);
-
+      setEnteredNums(num);
       return;
     }
 
-    tempSetEnteredNums(tempEnteredNums + num);
-    let temp: string = tempEnteredNums.concat(num.toString());
-
-    setEnteredNums(<Input input={temp}/>);
+    setEnteredNums(enteredNums + num);
   };
 
   const pressBackHandler = () => {
-    if (tempEnteredNums == "Wrong Length!" || tempEnteredNums == "Wrong Number!")
+    if (enteredNums.includes("Wrong"))
     {
-      tempSetEnteredNums("");
-      setEnteredNums(<Input input=""/>);
-
+      setEnteredNums("");
       return;
     }
 
-    tempSetEnteredNums(tempEnteredNums.substr(0, tempEnteredNums.length - 1));
-    let temp: string = tempEnteredNums.substr(0, tempEnteredNums.length - 1);
-    
-    setEnteredNums(<Input input={temp}/>)
+    setEnteredNums(enteredNums.substr(0, enteredNums.length - 1));
   };
   
   const callHandler = () => {
-    if (tempEnteredNums != "911") 
+    if (enteredNums != "911") 
     {
-      //Alert.alert("Wrong Number");
-      if (tempEnteredNums.length != 3) 
+      if (enteredNums.length != 3) 
       {
-        tempSetEnteredNums("Wrong Length!");
-        setEnteredNums(<Input input="Wrong Length!"/>);
+        setEnteredNums("Wrong Length!");
       }
       else
       {
-        tempSetEnteredNums("Wrong Number!");
-        setEnteredNums(<Input input="Wrong Number!"/>);
+        setEnteredNums("Wrong Number!");
       }
-      
-      // setTip(<Tips info={dialTip[0]} imageType="Remind"/>);
-
-      // if (enteredNums[0] == "9")
-      // {
-      //   setTip(<Tips info={dialTip[1]} imageType="Remind"/>);
-
-<<<<<<< Updated upstream
-        if (enteredNums[1] == "1")
-        {
-          setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
-
-          if (enteredNums[2] == "1")
-          {
-            setTip(<Tips info={dialTip[3]} imageType="Remind"/>);
-          }
-        }
-      }
-=======
-      //   if (enteredNums[1] == "1")
-      //   {
-      //     setTip(<Tips info={dialTip[2]} imageType="Remind"/>);
-      //   }
-      // }
->>>>>>> Stashed changes
-
+      setTimeout(() => {setEnteredNums("")}, 1750);
       return;
     }
     props.successfulCallHandler();
