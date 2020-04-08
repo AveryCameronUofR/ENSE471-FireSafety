@@ -11,15 +11,21 @@ const ScriptScreen = () => {
 {`911: What is your emergency?
 Caller: There is a Fire.
 911: Where is the emergency?
-Caller: [Address, Description]
-911: What is your name?
-Caller: [Name]
-911: What is your telephone number?
-Caller: [Telephone number]
-911: Do you need police or an ambulance?
-Caller:
-`}
+Caller:`}
       </Text>
+      <Text style={styles.answerText}>3737 University Drive</Text>
+      <Text  style={styles.infoText}>
+        {`911: What is your Name?\nCaller:`}
+      </Text> 
+      <Text style={styles.answerText}>{`John Smith`}</Text>
+      <Text  style={styles.infoText}>
+        {`911: What is your telephone number?\nCaller: `}
+      </Text>
+      <Text style={styles.answerText}>(306)555-5555</Text>
+      <Text  style={styles.infoText}>
+        {`911: Do you need police or an ambulance?\nCaller:`}
+      </Text>
+      <Text style={styles.answerText}>[Yes, No]</Text>
       <Text style={styles.subheaderText}>
         Additional Fire Questions:🔥
       </Text>
@@ -115,6 +121,14 @@ const styles = StyleSheet.create({
   infoText:{
     fontSize: 24,
     textAlign: "justify",
+  },
+  answerText:{
+    fontSize: 24,
+    textAlign: "justify",
+    color: "grey",
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1,
+    marginVertical: 10,
   },
   emojis:{
     textAlign: "center",
