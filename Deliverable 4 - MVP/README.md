@@ -28,3 +28,12 @@ Download the Expo App to your phone, for [Android](https://play.google.com/store
 The [How to Install and Run Fire Safety App](https://github.com/AveryCameronUofR/ENSE471-FireSafety/blob/master/Deliverable%204%20-%20MVP/How%20to%20Install%20and%20Run%20Fire%20Safety%20App.pdf) document goes more indepth with step by step instructions and images for the installation and running process. 
 
 The [ENSE 471 Fire Safety How to Install](https://www.youtube.com/watch?v=nxa4MZMsmJU) youtube video is available for installation instructions as well. 
+
+
+## Resources Used:
+DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php
+For educational use, permission confirmed.
+
+Success Sound obtained from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig Attribution 3.0
+Correct Sound obtained from: https://www.zapsplat.com/ Attribution 3.0
+Ringing Sound obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ CC0 1.0
