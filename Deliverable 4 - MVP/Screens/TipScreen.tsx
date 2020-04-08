@@ -12,9 +12,11 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
     { info: "Good Job! The number is 911", imageType: "GoodJob" },
     { info: "What is your emergency? 🔥🚒", imageType: "Remind" },
     { info: "Good Job! Your emergency is a fire!", imageType: "GoodJob" },
-    { info: "What is your address? 🏠", imageType: "Remind" },
+    { info: "Where is your emergency? 🏠", imageType: "Remind" },
     { info: addressTip, imageType: "GoodJob" },
-    { info: "Are you in danger?", imageType: "Remind" },
+    { info: "What is your name?", imageType: "Remind" },
+    { info: "Good Job!", imageType: "GoodJob" },
+    { info: "What is your phone number?📱", imageType: "Remind" },
     { info: "Good Job!", imageType: "GoodJob" },
     { info: "⭐⭐⭐⭐⭐\nGreat Practice! 911 call complete!", imageType: "Complete" }
   ];
@@ -48,7 +50,7 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
       setCurrentTip(currentTip + 1);
       if (currentTip % 2 == 1) {
         playCorrect();
-      } else if (currentTip == 6) {
+      } else if (currentTip == 8) {
         playSuccess();
       }
       return;
