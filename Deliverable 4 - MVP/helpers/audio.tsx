@@ -18,8 +18,7 @@ const correctSound = new Audio.Sound();
 const ringingSound = new Audio.Sound();
 
 export const loadAudio = async() => {
-  //DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php
-  //For educational use, permission confirmed.
+  //DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php Author: Dr. Ir. Stéphane Pigeon For educational use.
   await buttonSound1.loadAsync(require("../assets/audio/dtmf_1.mp3"));
   await buttonSound2.loadAsync(require("../assets/audio/dtmf_2.mp3"));
   await buttonSound3.loadAsync(require("../assets/audio/dtmf_3.mp3"));
@@ -33,11 +32,11 @@ export const loadAudio = async() => {
   await buttonSound0.loadAsync(require("../assets/audio/dtmf_0.mp3"));
   await buttonSoundPound.loadAsync(require("../assets/audio/dtmf_P.mp3"));
 
-  //Sound effect from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig Attribution 3.0
+  //Success Sound obtained from: https://soundbible.com/1003-Ta-Da.html Title: Ta Da Author: Mike Koenig Attribution 3.0
   await successSound.loadAsync(require("../assets/audio/success.mp3"));
-  //Sound effect obtained from: https://www.zapsplat.com/ Attribution 3.0
+  //Correct Sound obtained from: https://freesound.org/people/GabrielAraujo/sounds/242501/ Title: Powerup/success.wav Author: GabrielAraujo License: CC0 1.0
   await correctSound.loadAsync(require("../assets/audio/correct.mp3"));
-  //Sound effect obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ CC0 1.0
+  //Ringing Sound obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ Title: Ring Back Tone Author: NuclearTape Licence: CC0 1.0
   await ringingSound.loadAsync(require("../assets/audio/ring-back-tone.mp3"));
 };
 
