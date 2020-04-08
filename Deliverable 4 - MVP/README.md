@@ -31,13 +31,11 @@ The [ENSE 471 Fire Safety How to Install](https://www.youtube.com/watch?v=nxa4MZ
 
 
 ## Resources Used:
-DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php
-For educational use, permission confirmed.
+DTMF sounds from https://www.audiocheck.net/audiocheck_dtmf.php Author: Dr. Ir. Stéphane Pigeon
+For educational use.
 
-Success Sound obtained from: https://soundbible.com/1003-Ta-Da.html by Mike Koenig Attribution 3.0
+Success Sound obtained from: https://soundbible.com/1003-Ta-Da.html Title: Ta Da Author: Mike Koenig [Attribution 3.0](https://creativecommons.org/licenses/by/3.0/)
 
-Correct Sound obtained from: https://www.zapsplat.com/ Attribution 3.0
+Correct Sound obtained from: https://freesound.org/people/GabrielAraujo/sounds/242501/ Title: Powerup/success.wav Author: GabrielAraujo License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
-Ringing Sound obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ CC0 1.0
-
-
+Ringing Sound obtained from: https://freesound.org/people/NuclearTape/sounds/475550/ Title: Ring Back Tone Author: NuclearTape Licence:  [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
