@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
 
-import Input from "../Components/Input";
 import NumberButton from "../Components/NumberButton";
 import Tips from "../Components/Tips";
 import CallButton from "../Components/CallButton";
@@ -24,41 +23,67 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
   );
 
   const pressNumberHandler = (num: string) => {
-    playButtonSound(num);
+    //if the error message is still showing, not output allowed
     if (enteredNums.includes("Wrong")) {
-      setEnteredNums(num);
-      setShake(<Text style={styles.inputText}>{num}</Text>)
       return;
     }
+
+    playButtonSound(num);
+    if (enteredNums.length >= 3) {
+      //if the length is greater than 3, provide Wrong Length Feedback
+      callHandler();
+      return;
+    }
+
     setEnteredNums(enteredNums + num);
-    setShake(<Text style={styles.inputText}>{enteredNums + num}</Text>)
+    setShake(<Text style={styles.inputText}>{enteredNums + num}</Text>);
   };
 
   const pressBackHandler = () => {
     if (enteredNums.includes("Wrong")) {
       setEnteredNums("");
-      setShake(<Text style={styles.inputText}>{""}</Text>)
+      setShake(<Text style={styles.inputText}>{""}</Text>);
       return;
     }
 
     setEnteredNums(enteredNums.substr(0, enteredNums.length - 1));
-    setShake(<Text style={styles.inputText}>{enteredNums.substr(0, enteredNums.length - 1)}</Text>)
+    setShake(
+      <Text style={styles.inputText}>
+        {enteredNums.substr(0, enteredNums.length - 1)}
+      </Text>
+    );
   };
 
   const callHandler = () => {
     if (enteredNums != "911") {
       if (enteredNums.length != 3) {
         setEnteredNums("Wrong Length");
-        setShake(<Animatable.Text animation="shake"iterationCount={1}style={styles.shakeText}>{"Wrong Length"}</Animatable.Text>);
+        setShake(
+          <Animatable.Text
+            animation="shake"
+            iterationCount={1}
+            style={styles.shakeText}
+          >
+            {"Wrong Length"}
+          </Animatable.Text>
+        );
       } else {
         setEnteredNums("Wrong Number");
-        setShake(<Animatable.Text animation="shake"iterationCount={1}style={styles.shakeText}>{"Wrong Number"}</Animatable.Text>);
+        setShake(
+          <Animatable.Text
+            animation="shake"
+            iterationCount={1}
+            style={styles.shakeText}
+          >
+            {"Wrong Number"}
+          </Animatable.Text>
+        );
       }
-      
+
       setTimeout(() => {
         setEnteredNums("");
         setShake(<Text style={styles.inputText}>{""}</Text>);
-      }, 1750);
+      }, 1250);
       return;
     }
     props.successfulCallHandler();
@@ -67,9 +92,7 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
   return (
     <View style={styles.container}>
       <View style={styles.tipContainer}>{tip}</View>
-      <View style={styles.inputContainer}>
-        {shake}
-      </View>
+      <View style={styles.inputContainer}>{shake}</View>
       <View style={styles.buttonContainer}>
         <View style={styles.row}>
           <NumberButton
