@@ -20,14 +20,15 @@ let guess: number = 0;
 
 const CallScreen = (props: { successfulCallHandler: () => void }) => {
   const [enteredNums, setEnteredNums] = useState("");
-  const [tip, setTip] = useState(
-    <Tips info={dialTip[0]} imageType="Remind" />
-  );
+  const [tip, setTip] = useState(<Tips info={dialTip[0]} imageType="Remind" />);
   const [shake, setShake] = useState(<Text style={styles.inputText}></Text>);
 
   const pressNumberHandler = (num: string) => {
     //if the error message is still showing, not output allowed
-    if (enteredNums.includes("Wrong") || enteredNums.includes("Dial a number")) {
+    if (
+      enteredNums.includes("Wrong") ||
+      enteredNums.includes("Dial a number")
+    ) {
       return;
     }
 
@@ -58,25 +59,24 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
   };
 
   const callHandler = () => {
-    if (enteredNums == null || enteredNums == "")
-    {
+    if (enteredNums == null || enteredNums == "") {
       setEnteredNums("Dial a number");
-        setShake(
-          <Animatable.Text
-            animation="shake"
-            iterationCount={1}
-            style={styles.shakeText}
-          >
-            {"Dial a number"}
-          </Animatable.Text>
-        );
+      setShake(
+        <Animatable.Text
+          animation="shake"
+          iterationCount={1}
+          style={styles.shakeText}
+        >
+          {"Dial a number"}
+        </Animatable.Text>
+      );
 
-        setTimeout(() => {
-          setEnteredNums("");
-          setShake(<Text style={styles.inputText}>{""}</Text>);
-        }, 1250);
-        
-        return;
+      setTimeout(() => {
+        setEnteredNums("");
+        setShake(<Text style={styles.inputText}>{""}</Text>);
+      }, 1250);
+
+      return;
     }
 
     if (enteredNums != "911") {
@@ -93,13 +93,10 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
         );
 
         guess++;
-        if (guess > 3)
-        {
-          setTip(<Tips info={dialTip[3]} imageType="Remind"/>)
-        }
-        else
-        {
-          setTip(<Tips info={dialTip[guess]} imageType="Remind"/>)
+        if (guess > 3) {
+          setTip(<Tips info={dialTip[3]} imageType="Remind" />);
+        } else {
+          setTip(<Tips info={dialTip[guess]} imageType="Remind" />);
         }
       } else {
         setEnteredNums("Wrong Number");
@@ -114,13 +111,10 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
         );
 
         guess++;
-        if (guess > 3)
-        {
-          setTip(<Tips info={dialTip[3]} imageType="Remind"/>)
-        }
-        else
-        {
-          setTip(<Tips info={dialTip[guess]} imageType="Remind"/>)
+        if (guess > 3) {
+          setTip(<Tips info={dialTip[3]} imageType="Remind" />);
+        } else {
+          setTip(<Tips info={dialTip[guess]} imageType="Remind" />);
         }
       }
 
