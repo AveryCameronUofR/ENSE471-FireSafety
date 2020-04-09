@@ -10,18 +10,23 @@ import EmptyButton from "../Components/EmptyButton";
 import * as Animatable from "react-native-animatable";
 import { playButtonSound } from "../helpers/audio";
 
+var dialTip: string[] = new Array(
+  "What is the number? _ _ _",
+  "What is the number? 9 _ _",
+  "What is the number? 9 1 _",
+  "What is the number? 9 1 1"
+);
+
+let guess: number = 0;
+
 const CallScreen = (props: { successfulCallHandler: () => void }) => {
   const [enteredNums, setEnteredNums] = useState("");
   const [tip, setTip] = useState(
-    <Tips info="What is the number? _ _ _" imageType="Remind" />
+    <Tips info={dialTip[0]} imageType="Remind" />
   );
+
   const [shake, setShake] = useState(<Text style={styles.inputText}></Text>);
-  var dialTip: string[] = new Array(
-    "What is the number? _ _ _",
-    "What is the number? 9 _ _",
-    "What is the number? 9 1 _",
-    "What is the number? 9 1 1"
-  );
+  
 
   const pressNumberHandler = (num: string) => {
     playButtonSound(num);
@@ -50,9 +55,28 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
       if (enteredNums.length != 3) {
         setEnteredNums("Wrong Length");
         setShake(<Animatable.Text animation="shake"iterationCount={1}style={styles.shakeText}>{"Wrong Length"}</Animatable.Text>);
+        guess++;
+        if (guess > 3)
+        {
+          setTip(<Tips info={dialTip[3]} imageType="Remind"/>)
+        }
+        else
+        {
+          setTip(<Tips info={dialTip[guess]} imageType="Remind"/>)
+        }
+        
       } else {
         setEnteredNums("Wrong Number");
         setShake(<Animatable.Text animation="shake"iterationCount={1}style={styles.shakeText}>{"Wrong Number"}</Animatable.Text>);
+        guess++;
+        if (guess > 3)
+        {
+          setTip(<Tips info={dialTip[3]} imageType="Remind"/>)
+        }
+        else
+        {
+          setTip(<Tips info={dialTip[guess]} imageType="Remind"/>)
+        }
       }
       
       setTimeout(() => {
