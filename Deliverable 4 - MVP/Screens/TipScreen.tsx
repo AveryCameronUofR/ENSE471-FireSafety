@@ -7,7 +7,7 @@ import { playSuccess, playCorrect } from "../helpers/audio";
 
 const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
   let address = "";
-  let addressTip: string = "Good Job " + address + '!';
+  let addressTip: string = "Good Job " + address + "!";
   let tips: { info: string; imageType: string }[] = [
     { info: "Good Job! The number is 911", imageType: "GoodJob" },
     { info: "What is your emergency? 🔥🚒", imageType: "Remind" },
@@ -18,7 +18,7 @@ const TipScreen = (props: { tipsCompleteHandler: () => void }) => {
     { info: "Good Job!", imageType: "GoodJob" },
     { info: "What is your phone number?📱", imageType: "Remind" },
     { info: "Good Job!", imageType: "GoodJob" },
-    { info: "⭐⭐⭐⭐⭐\nGreat Practice! 911 call complete!", imageType: "Complete" }
+    { info: "⭐⭐⭐⭐⭐\nGreat Practice! 911 call complete!", imageType: "Complete" },
   ];
   const [currentTip, setCurrentTip] = useState(0);
   let image: JSX.Element;
@@ -90,23 +90,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignContent: "center"
+    alignContent: "center",
   },
   TipsInfo: {
     color: "black",
     fontSize: 32,
-    textAlign: "center"
+    textAlign: "center",
   },
   imageContainer: {
     flex: 1,
-    marginTop: 75, 
+    marginTop: 75,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   textContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -117,13 +117,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   image: {
     width: "100%",
     height: "100%",
-    resizeMode: "contain"
-  }
+    resizeMode: "contain",
+  },
 });
 
 export default TipScreen;
