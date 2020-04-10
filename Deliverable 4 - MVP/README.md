@@ -1,4 +1,4 @@
-## Setting up
+﻿## Setting up
 
 Make sure that Node is installed on your computer, Node is available at [Node](https://nodejs.org/en/). 
 
@@ -11,7 +11,7 @@ Now, run `npm --version` in the command line to verify that npm installed correc
 
 Next make sure that TypeScript is installed as a global dependency via: `npm install -g typescript`. This installs TypeScript globally which we use to build our project. 
 
-Finally, go to the address path of the project, Deliverable 4. Then run `npm install` to update node_modules. This ensures that you have all the dependencies for the project to run.
+Finally, go to the address path of the project, `Deliverable 4/Fire Safety App`. Then run `npm install` to update node_modules. This ensures that you have all the dependencies for the project to run.
 
 ## Starting the project
 To start the API, run: `npm start`  
