@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Animated } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import NumberButton from "../Components/NumberButton";
 import Tips from "../Components/Tips";
@@ -23,6 +23,24 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
   const [tip, setTip] = useState(<Tips info={dialTip[0]} imageType="Remind" />);
   const [shake, setShake] = useState(<Text style={styles.inputText}></Text>);
 
+  const feedbackHandler = (message: string) => {
+    setEnteredNums(message);
+    setShake(
+      <Animatable.Text
+        animation="shake"
+        iterationCount={1}
+        style={styles.shakeText}
+      >
+        {message}
+      </Animatable.Text>
+    );
+
+    setTimeout(() => {
+      setEnteredNums("");
+      setShake(<Text style={styles.inputText}>{""}</Text>);
+    }, 1250);
+  };
+
   const pressNumberHandler = (num: string) => {
     //if the error message is still showing, not output allowed
     if (
@@ -35,7 +53,7 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
     playButtonSound(num);
     if (enteredNums.length >= 3) {
       //if the length is greater than 3, provide Wrong Length Feedback
-      callHandler();
+      feedbackHandler("Wrong Number");
       return;
     }
 
@@ -60,68 +78,23 @@ const CallScreen = (props: { successfulCallHandler: () => void }) => {
 
   const callHandler = () => {
     if (enteredNums == null || enteredNums == "") {
-      setEnteredNums("Dial a number");
-      setShake(
-        <Animatable.Text
-          animation="shake"
-          iterationCount={1}
-          style={styles.shakeText}
-        >
-          {"Dial a number"}
-        </Animatable.Text>
-      );
-
-      setTimeout(() => {
-        setEnteredNums("");
-        setShake(<Text style={styles.inputText}>{""}</Text>);
-      }, 1250);
-
+      feedbackHandler("Dial a Number");
       return;
     }
 
     if (enteredNums != "911") {
       if (enteredNums.length != 3) {
-        setEnteredNums("Wrong Length");
-        setShake(
-          <Animatable.Text
-            animation="shake"
-            iterationCount={1}
-            style={styles.shakeText}
-          >
-            {"Wrong Length"}
-          </Animatable.Text>
-        );
-
-        guess++;
-        if (guess > 3) {
-          setTip(<Tips info={dialTip[3]} imageType="Remind" />);
-        } else {
-          setTip(<Tips info={dialTip[guess]} imageType="Remind" />);
-        }
+        feedbackHandler("Wrong Length");
       } else {
-        setEnteredNums("Wrong Number");
-        setShake(
-          <Animatable.Text
-            animation="shake"
-            iterationCount={1}
-            style={styles.shakeText}
-          >
-            {"Wrong Number"}
-          </Animatable.Text>
-        );
-
-        guess++;
-        if (guess > 3) {
-          setTip(<Tips info={dialTip[3]} imageType="Remind" />);
-        } else {
-          setTip(<Tips info={dialTip[guess]} imageType="Remind" />);
-        }
+        feedbackHandler("Wrong Number");
       }
 
-      setTimeout(() => {
-        setEnteredNums("");
-        setShake(<Text style={styles.inputText}>{""}</Text>);
-      }, 1250);
+      guess++;
+      if (guess > 3) {
+        setTip(<Tips info={dialTip[3]} imageType="Remind" />);
+      } else {
+        setTip(<Tips info={dialTip[guess]} imageType="Remind" />);
+      }
       return;
     }
     props.successfulCallHandler();
