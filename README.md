@@ -8,4 +8,4 @@ The initial Lofi prototyping, Brainstorming, User Story Mapping and design input
 ## Deliverable 3 - Hi-Fi Balsamiq Prototyping
 The Hifi prototyping process, updated User Story Maps and design discussion.
 ## Deliverable 4 - MVP 
-The built product, using React-Native and Expo, How-to Install and Running Documents, How-to use case documents, Updated User Story Maps.
+The built product, using React-Native and Expo. Go into the Deliverable 4 folder for installation instructions. These files include: How-to Install README and How-to Install Step By Step and Run  Documents, How-to use documents, and Updated User Story Maps
